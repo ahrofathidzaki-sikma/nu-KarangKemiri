@@ -27,8 +27,12 @@ class HomeController extends Controller
 
     public function struktur()
     {
-        return view('public.struktur', ['pengurus' => StrukturOrganisasi::orderBy('id')->get()]);
+        return view('public.struktur', [
+            'ipnu' => StrukturOrganisasi::ipnu()->orderBy('id')->get(),
+            'ippnu' => StrukturOrganisasi::ippnu()->orderBy('id')->get(),
+        ]);
     }
+
 
     public function dokumentasi(Request $r)
     {

@@ -2,7 +2,9 @@
 <html lang="id">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#08382a">
+  <script>document.documentElement.classList.add('js')</script>
   <title>@yield('title', 'Beranda') — {{ $pengaturan->nama_organisasi }} {{ $pengaturan->nama_desa }}</title>
   <meta name="description" content="{{ \Illuminate\Support\Str::limit($pengaturan->deskripsi, 150) }}">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,6 +12,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/efek.css') }}" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg site-nav sticky-top">
@@ -21,9 +24,10 @@
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Menu"><i class="bi bi-list fs-1"></i></button>
     <div class="collapse navbar-collapse" id="nav">
       <ul class="navbar-nav ms-auto gap-lg-1 py-2 py-lg-0">
-        @foreach ([['beranda','Beranda','beranda'],['tentang','Tentang','tentang'],['struktur','Struktur','struktur'],['berita.index','Berita','berita*'],['agenda.index','Agenda','agenda*'],['dokumentasi','Dokumentasi','dokumentasi']] as [$r, $label, $pat])
+        @foreach ([['beranda','Beranda','beranda'],['tentang','Tentang','tentang'],['struktur','Struktur','struktur'],['kta.index','KTA','kta*'],['berita.index','Berita','berita*'],['agenda.index','Agenda','agenda*'],['dokumentasi','Dokumentasi','dokumentasi']] as [$r, $label, $pat])
           <li class="nav-item"><a class="nav-link {{ request()->routeIs($pat) ? 'active' : '' }}" href="{{ route($r) }}">{{ $label }}</a></li>
         @endforeach
+
         <li class="nav-item ms-lg-2"><a class="btn btn-nu btn-sm mt-2 mt-lg-0" href="{{ route('login') }}"><i class="bi bi-person-lock"></i> Admin</a></li>
       </ul>
     </div>
@@ -38,7 +42,7 @@
       <div class="col-lg-5">
         <h5>Tentang</h5>
         <p>{{ $pengaturan->deskripsi }}</p>
-        <p class="small mb-0">{{ $pengaturan->nama_organisasi }} {{ $pengaturan->nama_desa }}, {{ $pengaturan->kabupaten }}</p>
+        <p class="small mb-0">{{ $pengaturan->nama_organisasi }} {{ $pengaturan->nama_desa }}</p>
       </div>
       <div class="col-md-6 col-lg-4">
         <h5>Contact Us</h5>
@@ -60,6 +64,13 @@
     <div class="footer-bottom text-center">&copy; {{ date('Y') }} {{ $pengaturan->nama_organisasi }} {{ $pengaturan->nama_desa }}. Hak cipta dilindungi.</div>
   </div>
 </footer>
+<nav class="bottom-nav d-lg-none" aria-label="Navigasi cepat">
+  @foreach ([['beranda','bi-house-door','Beranda','beranda'],['agenda.index','bi-calendar-event','Agenda','agenda*'],['kta.index','bi-person-vcard','KTA','kta*'],['dokumentasi','bi-images','Galeri','dokumentasi'],['struktur','bi-diagram-3','Struktur','struktur']] as [$r, $ic, $lb, $pt])
+    <a href="{{ route($r) }}" class="{{ request()->routeIs($pt) ? 'active' : '' }}"><i class="bi {{ $ic }}"></i><span>{{ $lb }}</span></a>
+  @endforeach
+
+</nav>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ asset('js/efek.js') }}" defer></script>
 </body>
 </html>

@@ -16,8 +16,7 @@ class DatabaseSeeder extends Seeder
 
         Pengaturan::updateOrCreate(['id' => 1], [
             'nama_organisasi' => 'Ranting NU',
-            'nama_desa' => 'Desa Karangkemiri',   // DUMMY - ganti lewat Admin > Pengaturan
-            'kabupaten' => 'Kabupaten Banyumas',
+            'nama_desa' => 'Desa Karangkemiri, Kab. Banyumas',   // DUMMY - ganti lewat Admin > Pengaturan
             'alamat' => 'Jl. Raya Karangkemiri No. 1, Banyumas, Jawa Tengah',
             'deskripsi' => 'Pusat informasi kegiatan, warta, dan silaturahmi warga Nahdlatul Ulama tingkat desa. Menjaga tradisi Ahlussunnah wal Jamaah an-Nahdliyah di tengah masyarakat.',
             'telepon' => '0281-000000',

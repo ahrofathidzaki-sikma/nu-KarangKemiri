@@ -2,9 +2,10 @@
 @section('title', 'Dashboard')
 @section('content')
 <div class="row g-3 mb-4">
-  @foreach ([['Total Agenda',$totalAgenda,'bi-calendar-event'],['Total Berita',$totalBerita,'bi-newspaper'],['Total Pengurus',$totalPengurus,'bi-diagram-3'],['Total Dokumentasi',$totalDokumentasi,'bi-images']] as [$l,$n,$i])
-    <div class="col-6 col-xl-3"><div class="admin-card kpi"><div class="ic"><i class="bi {{ $i }}"></i></div><div><b>{{ $n }}</b><br><span>{{ $l }}</span></div></div></div>
+  @foreach ([['Total Agenda',$totalAgenda,'bi-calendar-event'],['Total Berita',$totalBerita,'bi-newspaper'],['Pengurus',$totalPengurus,'bi-diagram-3'],['Anggota Aktif',$totalAnggotaAktif,'bi-person-vcard'],['Dokumentasi',$totalDokumentasi,'bi-images']] as [$l,$n,$i])
+    <div class="col-6 col-md-4 col-xl"><div class="admin-card kpi"><div class="ic"><i class="bi {{ $i }}"></i></div><div><b>{{ $n }}</b><br><span>{{ $l }}</span></div></div></div>
   @endforeach
+
 </div>
 <div class="row g-3">
   <div class="col-lg-6"><div class="admin-card p-3 h-100">

@@ -6,7 +6,7 @@
   <div class="container"><div class="row g-5">
     <div class="col-lg-7">
       <h2 class="h3 text-success-emphasis">Profil Organisasi</h2>
-      <p class="article-body">{{ $pengaturan->nama_organisasi }} {{ $pengaturan->nama_desa }} adalah struktur Nahdlatul Ulama tingkat desa di {{ $pengaturan->kabupaten }}, Jawa Tengah. {{ $pengaturan->deskripsi }}</p>
+      <p class="article-body">{{ $pengaturan->nama_organisasi }} {{ $pengaturan->nama_desa }} adalah struktur Nahdlatul Ulama tingkat desa di Jawa Tengah. {{ $pengaturan->deskripsi }}</p>
       <h2 class="h3 text-success-emphasis mt-4">Sejarah Singkat</h2>
       <p class="article-body">Nahdlatul Ulama didirikan oleh para ulama pada 31 Januari 1926 (16 Rajab 1344 H) di Surabaya untuk menjaga ajaran Ahlussunnah wal Jamaah. Di tingkat desa, ranting hadir sebagai ujung tombak khidmat kepada warga melalui pengajian, kegiatan sosial, dan pembinaan generasi muda. <em>(Teks ini dapat disesuaikan dengan sejarah ranting yang sebenarnya.)</em></p>
     </div>

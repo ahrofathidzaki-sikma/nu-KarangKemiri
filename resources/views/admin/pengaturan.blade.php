@@ -6,8 +6,7 @@
   @csrf @method('PUT')
   <div class="row g-3">
     <div class="col-md-6"><label class="form-label">Nama Organisasi *</label><input name="nama_organisasi" value="{{ $f('nama_organisasi') }}" class="form-control @error('nama_organisasi') is-invalid @enderror" required>@error('nama_organisasi')<div class="invalid-feedback">{{ $message }}</div>@enderror</div>
-    <div class="col-md-6"><label class="form-label">Nama Desa *</label><input name="nama_desa" value="{{ $f('nama_desa') }}" class="form-control @error('nama_desa') is-invalid @enderror" required>@error('nama_desa')<div class="invalid-feedback">{{ $message }}</div>@enderror</div>
-    <div class="col-md-6"><label class="form-label">Kabupaten *</label><input name="kabupaten" value="{{ $f('kabupaten') }}" class="form-control @error('kabupaten') is-invalid @enderror" required>@error('kabupaten')<div class="invalid-feedback">{{ $message }}</div>@enderror</div>
+    <div class="col-md-6"><label class="form-label">Desa &amp; Kabupaten *</label><input name="nama_desa" value="{{ $f('nama_desa') }}" placeholder="Desa Karangkemiri, Kab. Banyumas" class="form-control @error('nama_desa') is-invalid @enderror" required>@error('nama_desa')<div class="invalid-feedback">{{ $message }}</div>@enderror</div>
     <div class="col-md-6"><label class="form-label">Logo (maks 2 MB)</label>
       @if ($p->logo_url)<div class="mb-1"><img src="{{ $p->logo_url }}" style="height:48px" class="rounded"></div>@endif
       <input type="file" name="logo" accept="image/*" class="form-control @error('logo') is-invalid @enderror">@error('logo')<div class="invalid-feedback">{{ $message }}</div>@enderror</div>

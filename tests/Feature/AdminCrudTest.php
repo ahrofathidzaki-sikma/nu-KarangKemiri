@@ -111,9 +111,9 @@ class AdminCrudTest extends TestCase
     public function test_pengaturan_mengubah_nama_desa_di_seluruh_website(): void
     {
         $this->admin();
-        $this->put('/admin/pengaturan', ['nama_organisasi' => 'Ranting NU', 'nama_desa' => 'Desa Contoh', 'kabupaten' => 'Kabupaten Banyumas'])
+        $this->put('/admin/pengaturan', ['nama_organisasi' => 'Ranting NU', 'nama_desa' => 'Desa Contoh, Kab. Banyumas'])
             ->assertRedirect(route('admin.pengaturan.edit'));
-        $this->assertDatabaseHas('pengaturans', ['nama_desa' => 'Desa Contoh']);
+        $this->assertDatabaseHas('pengaturans', ['nama_desa' => 'Desa Contoh, Kab. Banyumas']);
         $this->get('/')->assertSee('Desa Contoh');
         $this->get('/tentang')->assertSee('Desa Contoh');
     }
@@ -122,5 +122,23 @@ class AdminCrudTest extends TestCase
     {
         Agenda::create(['judul' => 'A', 'slug' => 'a', 'tanggal' => '2026-01-01', 'lokasi' => 'L', 'status' => 'Akan Datang']);
         $this->admin()->get('/admin')->assertOk()->assertViewHas('totalAgenda', 1);
+    }
+
+    public function test_ganti_email_dan_password(): void
+    {
+        $user = User::factory()->create(['password' => bcrypt('lama12345')]);
+        $this->actingAs($user);
+
+        $this->put('/admin/akun', ['name' => 'Baru', 'email' => 'baru@contoh.test', 'password_lama' => 'salah'])
+            ->assertSessionHasErrors('password_lama');
+
+        $this->put('/admin/akun', [
+            'name' => 'Baru', 'email' => 'baru@contoh.test', 'password_lama' => 'lama12345',
+            'password_baru' => 'passwordBaru1', 'password_baru_confirmation' => 'passwordBaru1',
+        ])->assertRedirect(route('admin.akun.edit'));
+
+        $user->refresh();
+        $this->assertSame('baru@contoh.test', $user->email);
+        $this->assertTrue(\Illuminate\Support\Facades\Hash::check('passwordBaru1', $user->password));
     }
 }

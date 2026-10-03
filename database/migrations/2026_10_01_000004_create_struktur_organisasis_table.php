@@ -10,11 +10,14 @@ return new class extends Migration {
             $t->id();
             $t->string('nama');
             $t->string('jabatan');
+            $t->string('organisasi', 10)->default('ipnu'); // ipnu | ippnu
             $t->string('foto')->nullable();
             $t->string('periode', 50)->nullable();
+            $t->string('nomor_wa', 20)->nullable();
             $t->text('keterangan')->nullable();
             $t->timestamps();
         });
+
     }
     public function down(): void { Schema::dropIfExists('struktur_organisasis'); }
 };

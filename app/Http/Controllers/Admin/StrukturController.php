@@ -13,11 +13,14 @@ class StrukturController extends Controller
         return [
             'nama' => ['required', 'string', 'max:150'],
             'jabatan' => ['required', 'string', 'max:150'],
+            'organisasi' => ['required', 'in:ipnu,ippnu'],
             'periode' => ['nullable', 'string', 'max:50'],
+            'nomor_wa' => ['nullable', 'string', 'max:20', 'regex:/^[0-9+\-\s]+$/'],
             'keterangan' => ['nullable', 'string', 'max:500'],
             'foto' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
         ];
     }
+
 
     public function index()
     {

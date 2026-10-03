@@ -16,9 +16,11 @@
     ['admin.agendas.index', 'Agenda', 'bi-calendar-event', 'admin.agendas.*'],
     ['admin.berita.index', 'Berita', 'bi-newspaper', 'admin.berita.*'],
     ['admin.anggota.index', 'Struktur Organisasi', 'bi-diagram-3', 'admin.anggota.*'],
+    ['admin.kta.index', 'Anggota & KTA', 'bi-person-vcard', 'admin.kta.*'],
     ['admin.dokumentasi.index', 'Dokumentasi', 'bi-images', 'admin.dokumentasi.*'],
     ['admin.pengaturan.edit', 'Pengaturan', 'bi-gear', 'admin.pengaturan.*'],
   ];
+
 @endphp
 <div class="sidebar-wrap">
   <div class="offcanvas-lg offcanvas-start sidebar" tabindex="-1" id="sidebar">

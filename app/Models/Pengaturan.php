@@ -16,8 +16,7 @@ class Pengaturan extends Model
     {
         return static::first() ?? new static([
             'nama_organisasi' => 'Ranting NU',
-            'nama_desa' => 'Desa Karangkemiri',
-            'kabupaten' => 'Kabupaten Banyumas',
+            'nama_desa' => 'Desa Karangkemiri, Kab. Banyumas',
         ]);
     }
 

@@ -7,9 +7,19 @@
     <div class="col-md-6"><label class="form-label">Nama *</label>
       <input name="nama" value="{{ old('nama', $pengurus->nama) }}" class="form-control @error('nama') is-invalid @enderror" required>@error('nama')<div class="invalid-feedback">{{ $message }}</div>@enderror</div>
     <div class="col-md-6"><label class="form-label">Jabatan *</label>
-      <input name="jabatan" value="{{ old('jabatan', $pengurus->jabatan) }}" class="form-control @error('jabatan') is-invalid @enderror" required>@error('jabatan')<div class="invalid-feedback">{{ $message }}</div>@enderror</div>
+      <input name="jabatan" value="{{ old('jabatan', $pengurus->jabatan) }}" class="form-control @error('jabatan') is-invalid @enderror" required placeholder="Contoh: Ketua IPNU">@error('jabatan')<div class="invalid-feedback">{{ $message }}</div>@enderror</div>
+    <div class="col-md-6">
+      <label class="form-label">Organisasi *</label>
+      <select name="organisasi" class="form-select @error('organisasi') is-invalid @enderror" required>
+        <option value="ipnu" @selected(old('organisasi', $pengurus->organisasi ?? 'ipnu') === 'ipnu')>IPNU (Laki-laki)</option>
+        <option value="ippnu" @selected(old('organisasi', $pengurus->organisasi ?? '') === 'ippnu')>IPPNU (Perempuan)</option>
+      </select>
+      @error('organisasi')<div class="invalid-feedback">{{ $message }}</div>@enderror
+    </div>
     <div class="col-md-6"><label class="form-label">Periode</label>
-      <input name="periode" value="{{ old('periode', $pengurus->periode) }}" class="form-control @error('periode') is-invalid @enderror">@error('periode')<div class="invalid-feedback">{{ $message }}</div>@enderror</div>
+      <input name="periode" value="{{ old('periode', $pengurus->periode) }}" class="form-control @error('periode') is-invalid @enderror" placeholder="Contoh: 2026-2030">@error('periode')<div class="invalid-feedback">{{ $message }}</div>@enderror</div>
+    <div class="col-md-6"><label class="form-label">Nomor WA <span class="text-muted fw-normal">(opsional)</span></label>
+      <input name="nomor_wa" value="{{ old('nomor_wa', $pengurus->nomor_wa) }}" class="form-control @error('nomor_wa') is-invalid @enderror" placeholder="08xxxxxxxxxx">@error('nomor_wa')<div class="invalid-feedback">{{ $message }}</div>@enderror</div>
   </div>
   <div class="mb-3"><label class="form-label">Keterangan</label>
     <textarea name="keterangan" rows="3" class="form-control @error('keterangan') is-invalid @enderror">{{ old('keterangan', $pengurus->keterangan) }}</textarea>@error('keterangan')<div class="invalid-feedback">{{ $message }}</div>@enderror</div>

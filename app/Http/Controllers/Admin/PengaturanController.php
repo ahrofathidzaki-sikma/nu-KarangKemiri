@@ -17,8 +17,7 @@ class PengaturanController extends Controller
     {
         $data = $r->validate([
             'nama_organisasi' => ['required', 'string', 'max:150'],
-            'nama_desa' => ['required', 'string', 'max:150'],
-            'kabupaten' => ['required', 'string', 'max:150'],
+            'nama_desa' => ['required', 'string', 'max:200'],
             'alamat' => ['nullable', 'string', 'max:255'],
             'deskripsi' => ['nullable', 'string'],
             'telepon' => ['nullable', 'string', 'max:30'],
