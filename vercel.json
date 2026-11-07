@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "framework": "other",
+  "framework": "container",
   "functions": {
     "api/index.php": {
       "maxDuration": 60
