@@ -1,11 +1,5 @@
 {
   "version": 2,
-  "framework": "container",
-  "functions": {
-    "api/index.php": {
-      "maxDuration": 60
-    }
-  },
   "routes": [
     {
       "src": "/(.*)",
