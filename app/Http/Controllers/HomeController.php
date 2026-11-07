@@ -36,13 +36,13 @@ class HomeController extends Controller
 
     public function dokumentasi(Request $r)
     {
-        $q = Dokumentasi::with('agenda')->latest();
-        if ($r->filled('agenda')) {
-            $q->where('agenda_id', $r->integer('agenda'));
-        }
+    $q = Dokumentasi::with('agenda')->latest();
+    if ($r->filled('agenda')) {
+    $q->where('agenda_id', $r->integer('agenda'));
+    }
         return view('public.dokumentasi', [
             'dokumentasis' => $q->paginate(12)->withQueryString(),
-            'agendas' => Agenda::whereHas('dokumentasis')->orderByDesc('tanggal')->get(),
-        ]);
+            'agendas' => Agenda::withCount('dokumentasis')->orderByDesc('tanggal')->orderByDesc('id')->get(),
+    ]);
     }
 }

@@ -1,0 +1,17 @@
+/* Latar bergantian: hero (hijau) -> putih -> HIJAU -> putih -> footer (hijau).
+   Bagian bertanda .section-alt (mis. "Berita terbaru") memakai hijau tua seperti hero.
+   Warna hijau tua diatur lewat --nu-900 di public/css/app.css. */
+.section-alt{position:relative;overflow:hidden;background:var(--nu-900);color:rgba(255,255,255,.85)}
+.section-alt::before{content:"";position:absolute;inset:0;opacity:.07;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cpath d='M40 6l7 17 17-7-7 17 17 7-17 7 7 17-17-7-7 17-7-17-17 7 7-17-17-7 17-7-7-17 17 7z' fill='none' stroke='%23fff' stroke-width='1.2'/%3E%3C/svg%3E")}
+.section-alt::after{content:"";position:absolute;left:-10%;top:-40%;width:520px;height:520px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(127,209,164,.22),transparent 65%)}
+.section-alt>.container{position:relative;z-index:1}
+.section-alt .section-title,.section-alt h2,.section-alt .h4{color:#fff}
+.section-alt .eyebrow{color:var(--nu-300)}
+.section-alt a.fw-semibold{color:var(--nu-300)}
+.section-alt a.fw-semibold:hover{color:#fff}
+.section-alt .card-nu{border-color:transparent;box-shadow:0 22px 40px -26px rgba(0,0,0,.55)}
+.section-alt .card-nu,.section-alt .card-nu h3{color:var(--ink)}
+.section-alt .card-nu .meta{color:var(--muted)}
+.section-alt .alert-light{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.2)!important;color:#fff}

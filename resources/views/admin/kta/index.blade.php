@@ -68,7 +68,9 @@
               @endif
             </td>
             <td class="small font-monospace">{{ $a->nomor_anggota }}</td>
-            <td class="fw-semibold">{{ $a->nama }}</td>
+            <td class="fw-semibold">{{ $a->nama }}
+              @unless ($a->tanggal_lahir)<div class="small fw-normal text-warning"><i class="bi bi-exclamation-triangle"></i> Tanggal lahir belum diisi (anggota belum bisa cek KTA sendiri)</div>@endunless
+            </td>
             <td><span class="badge bg-light text-dark border">{{ $a->organisasi_label }}</span></td>
             <td>
               @if ($a->status === 'aktif')
@@ -79,6 +81,7 @@
             </td>
             <td class="small">{{ $a->no_wa ?: '-' }}</td>
             <td class="text-end text-nowrap aksi">
+              @if ($a->pengingat_wa_link)<a href="{{ $a->pengingat_wa_link }}" class="btn btn-sm btn-outline-success" target="_blank" rel="noopener" title="Kirim nomor anggota via WhatsApp"><i class="bi bi-whatsapp"></i></a>@endif
               <a href="{{ route('admin.kta.cetak', $a) }}" class="btn btn-sm btn-outline-success" target="_blank" title="Cetak KTA"><i class="bi bi-card-heading"></i></a>
               <a href="{{ route('admin.kta.edit', $a) }}" class="btn btn-sm btn-light" title="Edit"><i class="bi bi-pencil"></i></a>
               <form method="POST" action="{{ route('admin.kta.destroy', $a) }}" class="d-inline" onsubmit="return confirm('Hapus anggota ini?')">@csrf @method('DELETE')

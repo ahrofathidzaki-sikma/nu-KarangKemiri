@@ -13,6 +13,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   <link href="{{ asset('css/efek.css') }}" rel="stylesheet">
+  <link href="{{ asset('css/tema.css') }}" rel="stylesheet">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg site-nav sticky-top">

@@ -7,7 +7,7 @@
     <input name="judul" value="{{ old('judul', $berita->judul) }}" class="form-control @error('judul') is-invalid @enderror" required>@error('judul')<div class="invalid-feedback">{{ $message }}</div>@enderror</div>
   <div class="row g-3 mb-3">
     <div class="col-md-6"><label class="form-label">Tanggal *</label>
-      <input type="date" name="tanggal" value="{{ old('tanggal', optional($berita->tanggal)->format('Y-m-d')) }}" class="form-control @error('tanggal') is-invalid @enderror" required>@error('tanggal')<div class="invalid-feedback">{{ $message }}</div>@enderror</div>
+     <input type="date" name="tanggal" value="{{ old('tanggal', now()->format('Y-m-d')) }}" min="{{ now()->format('Y-m-d') }}" max="{{ now()->format('Y-m-d') }}" class="form-control @error('tanggal') is-invalid @enderror" required>@error('tanggal')<div class="invalid-feedback">{{ $message }}</div>@enderror</div>
     <div class="col-md-6"><label class="form-label">Penulis *</label>
       <input name="penulis" value="{{ old('penulis', $berita->penulis) }}" class="form-control @error('penulis') is-invalid @enderror" required>@error('penulis')<div class="invalid-feedback">{{ $message }}</div>@enderror</div>
   </div>

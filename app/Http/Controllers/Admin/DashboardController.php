@@ -15,9 +15,10 @@ class DashboardController extends Controller
             'totalAnggota' => Anggota::count(),
             'totalAnggotaAktif' => Anggota::aktif()->count(),
             'totalDokumentasi' => Dokumentasi::count(),
+            'anggotaTanpaTglLahir' => Anggota::whereNull('tanggal_lahir')->count(),
             'agendaAkanDatang' => Agenda::akanDatang()->take(5)->get(),
             'beritaTerbaru' => Berita::orderByDesc('created_at')->take(5)->get(),
+            'anggotaBaru' => Anggota::latest()->take(5)->get(),
         ]);
     }
 }
-

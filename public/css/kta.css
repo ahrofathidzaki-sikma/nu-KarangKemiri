@@ -1,0 +1,30 @@
+/* Halaman KTA — dibuat besar & jelas agar nyaman dibaca semua usia */
+.kta-page{font-size:1.04rem}
+.kta-page .form-control,.kta-page .form-select{font-size:1.05rem;min-height:50px}
+.kta-page .form-label{font-weight:700;font-size:.98rem}
+.kta-page .btn{min-height:50px;font-size:1.02rem;display:inline-flex;align-items:center;justify-content:center;gap:.4rem}
+.opsi-kta{position:relative;height:100%;background:#fff;border:1px solid var(--line);border-radius:1.4rem;padding:1.6rem}
+.opsi-kta.utama{border-color:var(--nu-300);box-shadow:0 24px 44px -30px rgba(8,56,42,.6)}
+.opsi-kta .ikon{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;font-size:1.6rem;background:var(--nu-100);color:var(--nu-700);margin-bottom:1rem}
+.opsi-kta h2{font-size:1.3rem;margin-bottom:.25rem}
+.opsi-kta .sub{color:var(--muted);font-size:.95rem;margin-bottom:1.1rem}
+.kta-kontak{background:var(--nu-50);border:1px dashed var(--nu-300);border-radius:1.1rem;padding:1.1rem 1.25rem}
+.kta-faq .accordion-item{border:1px solid var(--line);border-radius:1rem!important;overflow:hidden;margin-bottom:.7rem}
+.kta-faq .accordion-button{font-weight:700;font-size:1.02rem;background:#fff;box-shadow:none}
+.kta-faq .accordion-button:not(.collapsed){background:var(--nu-50);color:var(--nu-800)}
+.catatan{background:#fff8e6;border:1px solid #f2dfa6;border-radius:1rem;padding:.9rem 1.1rem;font-size:.95rem}
+.kartu-digital{position:relative;overflow:hidden;color:#fff;border-radius:1.5rem;padding:1.5rem;
+  background:linear-gradient(135deg,var(--nu-900),var(--nu-700))}
+.kartu-digital::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(circle,rgba(127,209,164,.35),transparent 70%)}
+.kartu-digital>*{position:relative;z-index:1}
+.kartu-digital .label{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.75;font-weight:700}
+.nomor-besar{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:clamp(1.55rem,7vw,2.3rem);
+  font-weight:800;letter-spacing:.05em;line-height:1.15;word-break:break-all}
+.kta-aksi .btn{width:100%}
+.langkah{counter-reset:l;list-style:none;padding:0;margin:0}
+.langkah li{counter-increment:l;display:flex;gap:.8rem;margin-bottom:.7rem;font-size:.97rem}
+.langkah li::before{content:counter(l);flex:none;width:28px;height:28px;border-radius:50%;background:var(--nu-100);color:var(--nu-800);
+  font-weight:800;display:grid;place-items:center;font-size:.85rem}
+.pilihan-kta{border:1px solid var(--line);border-radius:1.2rem;background:#fff;padding:1.1rem 1.2rem}
+@media(max-width:575.98px){.opsi-kta{padding:1.25rem}.kta-aksi .btn{min-height:54px}}

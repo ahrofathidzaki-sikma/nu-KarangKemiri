@@ -69,7 +69,7 @@
       ['.section .eyebrow, .section-title, .article-body, .ayat, .admin-card', ''],
       ['.card-nu', ''],
       ['.gallery-item', 'zoom'],
-      ['.site-footer .row > div', '']
+      /* footer tidak di-reveal */
     ];
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {

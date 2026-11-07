@@ -3,7 +3,7 @@ use App\Http\Controllers\Admin;
 use App\Http\Controllers\{AgendaPublikController, BeritaPublikController, HomeController, KtaPublikController};
 use Illuminate\Support\Facades\Route;
 
-// ===== PUBLIC =====
+// PUBLIC 
 Route::get('/', [HomeController::class, 'beranda'])->name('beranda');
 Route::get('/tentang', [HomeController::class, 'tentang'])->name('tentang');
 Route::get('/struktur', [HomeController::class, 'struktur'])->name('struktur');
@@ -13,21 +13,25 @@ Route::get('/berita/{slug}', [BeritaPublikController::class, 'show'])->name('ber
 Route::get('/agenda', [AgendaPublikController::class, 'index'])->name('agenda.index');
 Route::get('/agenda/{agenda}', [AgendaPublikController::class, 'show'])->whereNumber('agenda')->name('agenda.show');
 
-// KTA publik — anggota bisa daftar & cetak sendiri
+// KTA publik 
 Route::get('/kta', [KtaPublikController::class, 'index'])->name('kta.index');
 Route::get('/kta/daftar', [KtaPublikController::class, 'daftarForm'])->name('kta.daftar');
-Route::post('/kta/daftar', [KtaPublikController::class, 'daftarStore'])->name('kta.daftar.store');
-Route::post('/kta/cek', [KtaPublikController::class, 'cek'])->name('kta.cek');
+Route::post('/kta/daftar', [KtaPublikController::class, 'daftarStore'])->middleware('throttle:10,1')->name('kta.daftar.store');
+Route::post('/kta/cek', [KtaPublikController::class, 'cek'])->middleware('throttle:10,1')->name('kta.cek');
+Route::get('/kta/lupa', [KtaPublikController::class, 'lupaForm'])->name('kta.lupa');
+Route::post('/kta/lupa', [KtaPublikController::class, 'lupaCari'])->middleware('throttle:10,1')->name('kta.lupa.cari');
+Route::get('/kta/lupa/pilih', [KtaPublikController::class, 'pilih'])->name('kta.lupa.pilih');
+Route::post('/kta/lupa/pilih', [KtaPublikController::class, 'pilihStore'])->middleware('throttle:10,1')->name('kta.lupa.pilih.store');
 Route::get('/kta/hasil/{nomor}', [KtaPublikController::class, 'hasil'])->name('kta.hasil');
 Route::get('/kta/cetak/{nomor}', [KtaPublikController::class, 'cetak'])->name('kta.cetak');
 
-// ===== LOGIN ADMIN =====
+// LOGIN ADMIN
 
 Route::get('/admin/login', [Admin\AuthController::class, 'form'])->name('login');
 Route::post('/admin/login', [Admin\AuthController::class, 'login'])->middleware('throttle:6,1')->name('login.attempt');
 
-// ===== ADMIN (wajib login) =====
-Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+// ADMIN
+    Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('/', [Admin\DashboardController::class, 'index'])->name('dashboard');
     Route::post('/logout', [Admin\AuthController::class, 'logout'])->name('logout');
 
@@ -36,7 +40,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('anggota', Admin\StrukturController::class)->except('show')->parameters(['anggota' => 'pengurus']);
     Route::resource('dokumentasi', Admin\DokumentasiController::class)->except('show')->parameters(['dokumentasi' => 'dokumentasi']);
 
-    // Anggota & KTA
+    // KTA
     Route::get('kta/unduh', [Admin\KtaController::class, 'unduh'])->name('kta.unduh');
     Route::get('kta/cetak-massal', [Admin\KtaController::class, 'cetakMassal'])->name('kta.cetak-massal');
     Route::get('kta/{kta}/cetak', [Admin\KtaController::class, 'cetak'])->name('kta.cetak');
@@ -45,4 +49,3 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('pengaturan', [Admin\PengaturanController::class, 'edit'])->name('pengaturan.edit');
     Route::put('pengaturan', [Admin\PengaturanController::class, 'update'])->name('pengaturan.update');
 });
-

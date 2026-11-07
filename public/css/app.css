@@ -19,7 +19,7 @@ img{max-width:100%}
 
 /* ---------- NAV ---------- */
 .site-nav{background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.brand-mark{width:42px;height:42px;border-radius:12px;background:var(--nu-800);color:#fff;display:grid;place-items:center;font-size:1.25rem;overflow:hidden;flex:none}
+.brand-mark{width:42px;height:42px;border-radius:50%;background:var(--nu-800);color:#fff;display:grid;place-items:center;font-size:1.25rem;overflow:hidden;flex:none}
 .brand-mark img{width:100%;height:100%;object-fit:cover}
 .brand-title{font-family:var(--font-head);font-weight:700;color:var(--nu-900);line-height:1.1;font-size:1.05rem}
 .brand-sub{font-size:.72rem;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
@@ -153,3 +153,58 @@ img{max-width:100%}
 .admin-main .btn-light:hover{background:var(--nu-100);border-color:var(--nu-300);color:var(--nu-900)}
 .admin-main .btn-sm{padding:.3rem .7rem}
 .admin-main form .btn-nu+.btn-light{margin-left:.4rem}
+/* Tentang + jarak footer */
+.tentang-section{padding-bottom:5rem;position:relative;z-index:1;background:#fff}
+.tentang-block{background:#fff;border:1px solid var(--line);border-radius:1.1rem;padding:1.5rem 1.6rem}
+.tentang-side{background:#fff;border:1px solid var(--line);border-radius:1.1rem;padding:1.35rem 1.5rem;border-left:4px solid var(--nu-500)}
+.tentang-kontak{background:var(--nu-50);border-radius:1.1rem;padding:1.35rem 1.5rem}
+.site-footer{position:relative;z-index:0;clear:both;margin-top:0}
+main{position:relative;z-index:1;background:#fff;min-height:40vh}
+@media (max-width:991.98px){body{padding-bottom:4.5rem}}
+
+/* Dokumentasi*/
+.filter-chips{
+  display:flex;flex-wrap:nowrap;gap:.5rem;overflow-x:auto;
+  -webkit-overflow-scrolling:touch;padding-bottom:.35rem;
+  scrollbar-width:none;
+}
+.filter-chips::-webkit-scrollbar{display:none}
+.filter-chips .chip{
+  flex:0 0 auto;display:inline-flex;align-items:center;
+  padding:.4rem .9rem;border-radius:999px;font-size:.85rem;font-weight:600;
+  text-decoration:none;border:1.5px solid var(--line);color:var(--ink);background:#fff;
+  white-space:nowrap;
+}
+.filter-chips .chip.active{
+  background:var(--nu-700);border-color:var(--nu-700);color:#fff;
+}
+.section-galeri{padding-bottom:5.5rem}
+@media (max-width:575.98px){
+  .page-head{padding:2rem 0 1.5rem}
+  .page-head h1{font-size:1.55rem}
+  .section{padding:2rem 0 3rem}
+  .section-galeri{padding-bottom:6rem}
+  .gallery-item{border-radius:.7rem}
+  .gallery-item .cap{font-size:.75rem;padding:1.2rem .6rem .55rem}
+}
+
+/* Cegah teks memanjang horizontal */
+.article-body,
+.card-nu p.meta,
+.card-nu h3 {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+/* Ringkasan di kartu: max 3 baris, sisanya ... */
+.card-nu p.meta {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.article-body {
+  overflow-x: hidden;
+}

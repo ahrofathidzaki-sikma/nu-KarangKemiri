@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "framework": "other",
+  "functions": {
+    "api/index.php": {
+      "maxDuration": 60
+    }
+  },
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/public/index.php"
+    }
+  ]
+}

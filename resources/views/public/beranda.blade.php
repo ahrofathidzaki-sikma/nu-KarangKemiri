@@ -10,7 +10,7 @@
         <p class="lead mb-4">{{ $pengaturan->deskripsi }}</p>
         <div class="d-flex flex-wrap gap-2">
           <a href="{{ route('agenda.index') }}" class="btn btn-mint">Lihat Agenda</a>
-          <a href="{{ route('berita.index') }}" class="btn btn-outline-light">Baca Berita</a>
+          <a href="{{ route('kta.index') }}" class="btn btn-outline-light">Kartu Anggota (KTA)</a>
         </div>
       </div>
       <div class="col-lg-6">
@@ -35,6 +35,42 @@
   </div>
 </section>
 
+{{-- Pintasan --}}
+<section class="section py-4 border-bottom">
+  <div class="container">
+    <div class="row g-3">
+      <div class="col-6 col-md-3">
+        <a href="{{ route('struktur') }}" class="card-nu p-3 text-decoration-none text-reset d-block h-100 text-center quick-link">
+          <div class="text-success mb-2"><i class="bi bi-diagram-3 fs-3"></i></div>
+          <div class="fw-semibold">Struktur</div>
+          <div class="meta small">Pengurus IPNU &amp; IPPNU</div>
+        </a>
+      </div>
+      <div class="col-6 col-md-3">
+        <a href="{{ route('kta.index') }}" class="card-nu p-3 text-decoration-none text-reset d-block h-100 text-center quick-link">
+          <div class="text-success mb-2"><i class="bi bi-person-vcard fs-3"></i></div>
+          <div class="fw-semibold">KTA</div>
+          <div class="meta small">Daftar &amp; cetak kartu</div>
+        </a>
+      </div>
+      <div class="col-6 col-md-3">
+        <a href="{{ route('dokumentasi') }}" class="card-nu p-3 text-decoration-none text-reset d-block h-100 text-center quick-link">
+          <div class="text-success mb-2"><i class="bi bi-images fs-3"></i></div>
+          <div class="fw-semibold">Galeri</div>
+          <div class="meta small">Dokumentasi kegiatan</div>
+        </a>
+      </div>
+      <div class="col-6 col-md-3">
+        <a href="{{ route('tentang') }}" class="card-nu p-3 text-decoration-none text-reset d-block h-100 text-center quick-link">
+          <div class="text-success mb-2"><i class="bi bi-info-circle fs-3"></i></div>
+          <div class="fw-semibold">Tentang</div>
+          <div class="meta small">Profil organisasi</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section">
   <div class="container">
     <div class="d-flex justify-content-between align-items-end mb-4">
@@ -51,7 +87,7 @@
 <section class="section section-alt">
   <div class="container">
     <div class="d-flex justify-content-between align-items-end mb-4">
-      <div><div class="eyebrow">Warta</div><h2 class="section-title mb-0">Berita terbaru</h2></div>
+      <div><div class="eyebrow">Artikel</div><h2 class="section-title mb-0">Berita terbaru</h2></div>
       <a href="{{ route('berita.index') }}" class="fw-semibold text-decoration-none d-none d-sm-block">Semua berita <i class="bi bi-arrow-right"></i></a>
     </div>
     <div class="row g-4">

@@ -12,7 +12,7 @@ class BeritaController extends Controller
     {
         return [
             'judul' => ['required', 'string', 'max:200'],
-            'tanggal' => ['required', 'date'],
+            'tanggal' => ['required', 'date', 'before_or_equal:today'],
             'penulis' => ['required', 'string', 'max:100'],
             'isi' => ['required', 'string'],
             'gambar' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
