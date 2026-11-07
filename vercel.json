@@ -1,8 +1,15 @@
 {
   "version": 2,
-  "buildCommand": "composer install --no-dev --optimize-autoloader",
-  "outputDirectory": "public",
+  "builds": [
+    {
+      "src": "public/index.php",
+      "use": "@vercel/php"
+    }
+  ],
   "routes": [
+    {
+      "handle": "filesystem"
+    },
     {
       "src": "/(.*)",
       "dest": "/public/index.php"
